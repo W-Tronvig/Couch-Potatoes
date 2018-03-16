@@ -22,24 +22,25 @@ var foodArray = [
   new Ingest("Paradox Cafe", "../images/ingest/paradox.jpg", "http://paradoxorganiccafe.com", "3439 SE Belmont St, Portland, OR 97214"),
 ];
 
-
+var pickedImages = [];
 //function will choose random activity
 function getfoodActivity() {
   var sendImage = document.getElementById("activity");
   sendImage.innerHTML = "";
   var chosen = foodArray[Math.floor(Math.random()*foodArray.length)];
-  console.log(chosen);
-  console.log(chosen.name);
-  console.log(chosen.image);
-  console.log(chosen.address);
-  console.log(chosen.website);
+  //check if chosen image is already in pickedImages
+  //if it is, make a new chosen images
+  while (pickedImages.includes(chosen.image)) {
+    var chosen = foodArray[Math.floor(Math.random()*foodArray.length)];
+  }
   var image = chosen.image;
   var foodImage = document.createElement("img");
   foodImage.src = chosen.image;
   document.getElementById("activity").innerHTML = chosen.name+ "<br>";
-  var send = sendImage.appendChild(foodImage);
+  sendImage.appendChild(foodImage);
   document.getElementById("info").innerHTML= "<br>"+ chosen.website + "<br>" + chosen.address;
-    }
+  pickedImages.push(chosen.image);
+}
 
 var drinkArray = [
   ("Pearl Tavern", "images/ingest/pearl.jpg","http://pearltavernpdx.com", "231 NW 11th Ave, Portland, OR 97209"),
