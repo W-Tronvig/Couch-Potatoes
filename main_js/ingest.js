@@ -23,8 +23,13 @@ var foodArray = [
 ];
 
 var pickedImages = [];
+
+
 //function will choose random activity
 function getfoodActivity() {
+  if (pickedImages.length == foodArray.length) {
+    pickedImages = [];
+  }
   var sendImage = document.getElementById("activity");
   sendImage.innerHTML = "";
   var chosen = foodArray[Math.floor(Math.random()*foodArray.length)];
@@ -41,6 +46,7 @@ function getfoodActivity() {
   document.getElementById("info").innerHTML= "<br>"+ chosen.website + "<br>" + chosen.address;
   pickedImages.push(chosen.image);
 }
+
 
 var drinkArray = [
   ("Pearl Tavern", "images/ingest/pearl.jpg","http://pearltavernpdx.com", "231 NW 11th Ave, Portland, OR 97209"),
