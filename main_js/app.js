@@ -85,8 +85,6 @@ var outsideCalmArray = [
     new Activity("Willamette Valley Wine Tasting", "../main_images/Outside/WillametteValleyWine.jpeg", "https://www.wvv.com/", "8800 Enchanted Way SE Turner, OR 97392"),
 ];
 
-
-
 var pickedActivity = [];
 
 //function will choose random activity
@@ -110,3 +108,18 @@ function getActivity(activityOptions) {
     document.getElementById("info").innerHTML = "<br>" + chosen.website + "<br>" + chosen.address;
     pickedActivity.push(chosen.image);
 }
+
+// document.getElementById("userDoesNotLike").addEventListener("click", getActivity);
+
+
+// document.getElementById("choices").appendChild(button);
+
+
+function button() {
+    var button = document.createElement("BUTTON");
+    var buttonName = document.createTextNode("CLICK ME MOTHA F*****");
+    button.appendChild(buttonName);
+    document.getElementById("choices").appendChild(button);
+}
+
+window.addEventListener("load", button);
