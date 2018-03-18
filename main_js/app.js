@@ -85,6 +85,26 @@ var outsideCalmArray = [
     new Activity("Willamette Valley Wine Tasting", "../main_images/Outside/WillametteValleyWine.jpeg", "https://www.wvv.com/", "8800 Enchanted Way SE Turner, OR 97392"),
 ];
 
+var activities = {
+    outside: {
+        active: outsideActiveArray,
+        calm: outsideCalmArray
+    },
+    inside: {
+        active: insideActiveArray,
+        calm: insideCalmArray 
+    },
+    ingest: {
+        food: foodArray,
+        drink: drinkArray
+    },
+};
+
+var chosenCategory = "";
+var chosenSubCategory = "";
+
+//chosenarray = activities[chosenCategory][chosenSubCategory]
+
 var pickedActivity = [];
 
 //function will choose random activity
@@ -115,11 +135,40 @@ function getActivity(activityOptions) {
 // document.getElementById("choices").appendChild(button);
 
 
-function button() {
+function button(type) {
     var button = document.createElement("BUTTON");
-    var buttonName = document.createTextNode("CLICK ME MOTHA F*****");
+    var buttonName = document.createTextNode(type);
     button.appendChild(buttonName);
-    document.getElementById("choices").appendChild(button);
+    if (type.indexOf("feed") > 0){
+        button.addEventListener("click", showMeIngest);
+    } else {
+        button.addEventListener("click", showMeTwoButtons); 
+    }
+    document.getElementById("choices").appendChild(button);   
 }
 
-window.addEventListener("load", button);
+// window.addEventListener("load", button);
+
+
+function showMeThreeButtons() {
+    var buttonOne = "Get yo ass outside";
+    button(buttonOne);
+    button("Get yo Ass Inside");
+    button("Go feed yo Ass");
+}
+
+function showMeTwoButtons() {
+    button("Move yo Ass");
+    button("Calm yo Ass");
+}
+
+function showMeIngest() {
+    button("Feed yo Ass");
+    button("Drink yo Ass");
+}
+
+window.addEventListener("load", showMeThreeButtons);
+
+
+
+// add event listeners to each button, get new buttons to show when other buttons get clicked! 
