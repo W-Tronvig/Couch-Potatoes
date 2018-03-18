@@ -11,15 +11,15 @@ var Ingest = function(name, image, website, address) {
 //food
 var foodArray = [
   new Ingest("Rudy's Pizza", "../main_images/ingest/rudys.jpg","www.rudysgourmetpizza.com", "2443 SE Powell Blvd, Portland, OR 97202"),
-  new Ingest("Loving Hut", "../html_images/ingest/lovinghut.jpg", "https://lovinghut.us/portland", "1239 SW Jefferson St, Portland, OR 97201"),
-  new Ingest("Jackknife", "../html_images/ingest/jackknife.jpg", "http://jackknifepdx.com", "614 SW 11th Ave, Portland, OR 97205"),
-  new Ingest("NextLevel Burger", "../html_images/ingest/nextlevel.jpg", "http://www.nextlevelburger.com", "4121 SE Hawthorne Blvd, Portland, OR 97214"),
-  new Ingest("Departure", "../html_images/ingest/departure.jpg", "http://departureportland.com", "525 SW Morrison St, Portland, OR 97204"),
-  new Ingest("Mi Mero Mole", "../html_images/ingest/mole.jpg", "http://mmmtacospdx.com", "32 NW 5th Ave, Portland, OR 97209"),
-  new Ingest("Le Pigeon", "../html_images/ingest/pigeon.png", "http://lepigeon.com", "738 E Burnside St, Portland, OR 97214"),
-  new Ingest("Bollywood Theater", "../html_images/ingest/bollywood.jpg", "http://www.bollywoodtheaterpdx.com", "3010 SE Division St, Portland, OR 97202"),
-  new Ingest("No Bones Beach Club", "../html_images/ingest/bones.png", "https://www.nobonespdx.com", "3928 N Mississippi Ave, Portland, OR 97227"),
-  new Ingest("Paradox Cafe", "../html_images/ingest/paradox.jpg", "http://paradoxorganiccafe.com", "3439 SE Belmont St, Portland, OR 97214"),
+  new Ingest("Loving Hut", "../main_images/ingest/lovinghut.jpg", "https://lovinghut.us/portland", "1239 SW Jefferson St, Portland, OR 97201"),
+  new Ingest("Jackknife", "../main_images/ingest/jackknife.jpg", "http://jackknifepdx.com", "614 SW 11th Ave, Portland, OR 97205"),
+  new Ingest("NextLevel Burger", "../main_images/ingest/nextlevel.jpg", "http://www.nextlevelburger.com", "4121 SE Hawthorne Blvd, Portland, OR 97214"),
+  new Ingest("Departure", "../main_images/ingest/departure.jpg", "http://departureportland.com", "525 SW Morrison St, Portland, OR 97204"),
+  new Ingest("Mi Mero Mole", "../main_images/ingest/mole.jpg", "http://mmmtacospdx.com", "32 NW 5th Ave, Portland, OR 97209"),
+  new Ingest("Le Pigeon", "../main_images/ingest/pigeon.png", "http://lepigeon.com", "738 E Burnside St, Portland, OR 97214"),
+  new Ingest("Bollywood Theater", "../main_images/ingest/bollywood.jpg", "http://www.bollywoodtheaterpdx.com", "3010 SE Division St, Portland, OR 97202"),
+  new Ingest("No Bones Beach Club", "../main_images/ingest/bones.png", "https://www.nobonespdx.com", "3928 N Mississippi Ave, Portland, OR 97227"),
+  new Ingest("Paradox Cafe", "../main_images/ingest/paradox.jpg", "http://paradoxorganiccafe.com", "3439 SE Belmont St, Portland, OR 97214"),
 ];
 
 var pickedImages = [];
@@ -45,6 +45,14 @@ function getfoodActivity() {
   sendImage.appendChild(foodImage);
   document.getElementById("info").innerHTML= "<br>"+ chosen.website + "<br>" + chosen.address;
   pickedImages.push(chosen.image);
+}
+
+function createButton(context, func){
+    var button = document.createElement("input");
+    button.type = "button";
+    button.value = "im a button";
+    button.onclick = func;
+    context.appendChild(button);
 }
 
 
