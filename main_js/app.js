@@ -140,26 +140,23 @@ function button(type) {
     var buttonName = document.createTextNode(type);
     var empty =
     button.appendChild(buttonName);
-<<<<<<< HEAD
     if (type.indexOf("feed") > 0){
         button.addEventListener("click", showMeIngest);
     } else {
         button.addEventListener("click", showMeTwoButtons);
     }
     document.getElementById("choices").appendChild(button);
-=======
     if (type.includes("Ingest")){
-        button.addEventListener("click", showMeIngest); 
+        button.addEventListener("click", showMeIngest);
     } else if (type.includes("Active") || type.includes("Calm")) {
         button.addEventListener("click", getToResultsPage);
-    } 
-    
-    else {
-        button.addEventListener("click", showMeTwoButtons); 
     }
-    document.getElementById("choices").appendChild(button);   
-    
->>>>>>> 744b52a5996ddea101e09b14eaa940ecba8edae8
+
+    else {
+        button.addEventListener("click", showMeTwoButtons);
+    }
+    document.getElementById("choices").appendChild(button);
+
 }
 
 function showMeThreeButtons() {
@@ -182,12 +179,12 @@ function showMeIngest() {
 
 function getToResultsPage() {
     var url = window.location.href;
-    
+
     var updatedURL = url.replace("home", "results");
     console.log(updatedURL);
-    window.location = updatedURL; 
+    window.location = updatedURL;
 
-    
+
 
 }
 
