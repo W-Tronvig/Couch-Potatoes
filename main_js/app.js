@@ -103,7 +103,7 @@ var activities = {
 var chosenCategory = "";
 var chosenSubCategory = "";
 
-//chosenarray = activities[chosenCategory][chosenSubCategory]
+// var chosenArray = activities[chosenCategory][chosenSubCategory]
 
 var pickedActivity = [];
 
@@ -138,33 +138,57 @@ function getActivity(activityOptions) {
 function button(type) {
     var button = document.createElement("BUTTON");
     var buttonName = document.createTextNode(type);
+    var empty =
     button.appendChild(buttonName);
+<<<<<<< HEAD
     if (type.indexOf("feed") > 0){
         button.addEventListener("click", showMeIngest);
     } else {
         button.addEventListener("click", showMeTwoButtons);
     }
     document.getElementById("choices").appendChild(button);
+=======
+    if (type.includes("Ingest")){
+        button.addEventListener("click", showMeIngest); 
+    } else if (type.includes("Active") || type.includes("Calm")) {
+        button.addEventListener("click", getToResultsPage);
+    } 
+    
+    else {
+        button.addEventListener("click", showMeTwoButtons); 
+    }
+    document.getElementById("choices").appendChild(button);   
+    
+>>>>>>> 744b52a5996ddea101e09b14eaa940ecba8edae8
 }
 
-// window.addEventListener("load", button);
-
-
 function showMeThreeButtons() {
-    var buttonOne = "Get yo ass outside";
-    button(buttonOne);
-    button("Get yo Ass Inside");
-    button("Go feed yo Ass");
+    button("Outside");
+    button("Inside");
+    button("Ingest");
 }
 
 function showMeTwoButtons() {
-    button("Move yo Ass");
-    button("Calm yo Ass");
+    document.getElementById("choices").innerHTML = "";
+    button("Active");
+    button("Calm");
 }
 
 function showMeIngest() {
-    button("Feed yo Ass");
-    button("Drink yo Ass");
+    document.getElementById("choices").innerHTML = "";
+    button("Food");
+    button("Drinks");
+}
+
+function getToResultsPage() {
+    var url = window.location.href;
+    
+    var updatedURL = url.replace("home", "results");
+    console.log(updatedURL);
+    window.location = updatedURL; 
+
+    
+
 }
 
 window.addEventListener("load", showMeThreeButtons);
