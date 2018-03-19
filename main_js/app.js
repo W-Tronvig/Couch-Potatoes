@@ -92,7 +92,7 @@ var activities = {
     },
     inside: {
         active: insideActiveArray,
-        calm: insideCalmArray 
+        calm: insideCalmArray
     },
     ingest: {
         food: foodArray,
@@ -142,9 +142,9 @@ function button(type) {
     if (type.indexOf("feed") > 0){
         button.addEventListener("click", showMeIngest);
     } else {
-        button.addEventListener("click", showMeTwoButtons); 
+        button.addEventListener("click", showMeTwoButtons);
     }
-    document.getElementById("choices").appendChild(button);   
+    document.getElementById("choices").appendChild(button);
 }
 
 // window.addEventListener("load", button);
@@ -171,4 +171,4 @@ window.addEventListener("load", showMeThreeButtons);
 
 
 
-// add event listeners to each button, get new buttons to show when other buttons get clicked! 
+// add event listeners to each button, get new buttons to show when other buttons get clicked!
