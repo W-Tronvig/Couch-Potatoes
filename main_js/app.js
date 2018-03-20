@@ -124,7 +124,7 @@ var activities = {
 var chosenCategory = "";
 var chosenSubCategory = "";
 
-// var chosenArray = activities[chosenCategory][chosenSubCategory]
+// var chosenArray = activities[chosenCategory][chosenSubCategory];
 
 var pickedActivity = [];
 
@@ -162,12 +162,22 @@ function button(type) {
     button.appendChild(buttonName);
     if (type == "Ingest"){
         button.addEventListener("click", showMeIngest);
+        button.addEventListener("click", function() {
+          chosenCategory = "Ingest";
+        })
     } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drinks") {
+        button.addEventListener("click", function() {
+          chosenSubCategory = type;
+        })
         button.addEventListener("click", getToResultsPage);
+
     }
 
     else {
         button.addEventListener("click", showMeTwoButtons);
+        button.addEventListener("click", function() {
+          chosenCategory = type;
+        })
     }
 
     if (choices){
@@ -195,15 +205,12 @@ function showMeIngest() {
 }
 
 function getToResultsPage() {
-    var url = window.location.href;
-
-    var updatedURL = url.replace("home", "results");
-    console.log(updatedURL);
-    window.location = updatedURL;
+  localStorage.setItem("category",chosenCategory);
+  localStorage.setItem("subCategory", chosenSubCategory);
+  var url = window.location.href;
+  var updatedURL = url.replace("home", "results");
+  console.log(updatedURL);
+  window.location = updatedURL;
 }
 
 window.addEventListener("load", showMeThreeButtons);
-<<<<<<< HEAD
-=======
-
->>>>>>> 88ba6c3fc67a4718a8cf555d69a6914359c338a5
