@@ -113,7 +113,7 @@ var activities = {
     },
     inside: {
         active: insideActiveArray,
-        calm: insideCalmArray 
+        calm: insideCalmArray
     },
     ingest: {
         food: foodArray,
@@ -161,20 +161,39 @@ function button(type) {
     var buttonName = document.createTextNode(type);
     var empty =
     button.appendChild(buttonName);
+//outside-branch
     if (type == "Ingest"){
         button.addEventListener("click", showMeIngest); 
     } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drink") {
         button.addEventListener("click", getToResultsPage);
     } 
+//
+    if (type.indexOf("feed") > 0){
+        button.addEventListener("click", showMeIngest);
+    } else {
+        button.addEventListener("click", showMeTwoButtons);
+    }
+    document.getElementById("choices").appendChild(button);
+    if (type.includes("Ingest")){
+        button.addEventListener("click", showMeIngest);
+    } else if (type.includes("Active") || type.includes("Calm")) {
+        button.addEventListener("click", getToResultsPage);
+    }
+//master
 
     else {
-        button.addEventListener("click", showMeTwoButtons); 
+        button.addEventListener("click", showMeTwoButtons);
     }
+// outside-branch
 
     if (choices){
         choices.appendChild(button);   
     }
     
+//
+    document.getElementById("choices").appendChild(button);
+
+//master
 }
 
 function showMeThreeButtons() {
@@ -197,10 +216,24 @@ function showMeIngest() {
 
 function getToResultsPage() {
     var url = window.location.href;
-    
+
     var updatedURL = url.replace("home", "results");
     console.log(updatedURL);
+// outside-branch
     window.location = updatedURL; 
 }
 
 window.addEventListener("load", showMeThreeButtons);
+//
+    window.location = updatedURL;
+
+
+
+}
+
+window.addEventListener("load", showMeThreeButtons);
+
+
+
+// add event listeners to each button, get new buttons to show when other buttons get clicked!
+// master
