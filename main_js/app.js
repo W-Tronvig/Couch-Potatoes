@@ -235,7 +235,6 @@ window.addEventListener("load", showMeThreeButtons);
 
 
 
-
 // add event listeners to track what the user has clicked on(inside, outside, food) and also track the subcategories. When it takes user to the results page,
 //  your going to user local storage from the home page to show results. 
 
@@ -243,4 +242,3 @@ window.addEventListener("load", showMeThreeButtons);
 
 // add event listeners to each button, get new buttons to show when other buttons get clicked!
 // master
-
