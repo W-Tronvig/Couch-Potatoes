@@ -184,6 +184,13 @@ function getToResultsPage() {
 
 window.addEventListener("load", showMeThreeButtons);
 
+function helloCodeFellows(){
+    // do some logic and return a valid value 
+  }
+var testAlpha = helloCodeFellows();
+console.log(testAlpha)
+var testBeta = helloCodeFellows;
+console.log(testBeta)
 
-
-// add event listeners to each button, get new buttons to show when other buttons get clicked! 
+// add event listeners to track what the user has clicked on(inside, outside, food) and also track the subcategories. When it takes user to the results page,
+//  your going to user local storage from the home page to show results. 
