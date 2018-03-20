@@ -92,7 +92,7 @@ var activities = {
     },
     inside: {
         active: insideActiveArray,
-        calm: insideCalmArray 
+        calm: insideCalmArray
     },
     ingest: {
         food: foodArray,
@@ -141,16 +141,16 @@ function button(type) {
     var empty =
     button.appendChild(buttonName);
     if (type.includes("Ingest")){
-        button.addEventListener("click", showMeIngest); 
+        button.addEventListener("click", showMeIngest);
     } else if (type.includes("Active") || type.includes("Calm")) {
         button.addEventListener("click", getToResultsPage);
-    } 
-    
-    else {
-        button.addEventListener("click", showMeTwoButtons); 
     }
-    document.getElementById("choices").appendChild(button);   
-    
+
+    else {
+        button.addEventListener("click", showMeTwoButtons);
+    }
+    document.getElementById("choices").appendChild(button);
+
 }
 
 function showMeThreeButtons() {
@@ -173,12 +173,12 @@ function showMeIngest() {
 
 function getToResultsPage() {
     var url = window.location.href;
-    
+
     var updatedURL = url.replace("home", "results");
     console.log(updatedURL);
-    window.location = updatedURL; 
+    window.location = updatedURL;
 
-    
+
 
 }
 
@@ -186,4 +186,4 @@ window.addEventListener("load", showMeThreeButtons);
 
 
 
-// add event listeners to each button, get new buttons to show when other buttons get clicked! 
+// add event listeners to each button, get new buttons to show when other buttons get clicked!
