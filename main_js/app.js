@@ -1,16 +1,10 @@
 'use strict';
-var choices = document.getElementById("choices");
 
 var Activity = function (name, image, website, address) {
     this.name = name;
     this.image = image;
     this.website = website;
     this.address = address;
-}
-
-var userImage = function (image){
-    this.image = image;
-    this.name = "";
 }
 
 var foodArray = [
@@ -91,21 +85,6 @@ var outsideCalmArray = [
     new Activity("Willamette Valley Wine Tasting", "../main_images/Outside/WillametteValleyWine.jpeg", "https://www.wvv.com/", "8800 Enchanted Way SE Turner, OR 97392"),
 ];
 
-var userImageArray = [
-    new userImage("../main_images/UserImage/UserImageBunny.jpg"),
-    new userImage("../main_images/UserImage/UserImageCat.jpg"),
-    new userImage("../main_images/UserImage/UserImageCookie.jpg"),
-    new userImage("../main_images/UserImage/UserImageDrop.jpg"),
-    new userImage("../main_images/UserImage/UserImageEagle.jpg"),
-    new userImage("../main_images/UserImage/UserImageFlower.jpg"),
-    new userImage("../main_images/UserImage/UserImageOwl.jpg"),
-    new userImage("../main_images/UserImage/UserImagePeacock.jpg"),
-    new userImage("../main_images/UserImage/UserImageSeal.jpg"),
-    new userImage("../main_images/UserImage/UserImageSnail.jpg"),
-    new userImage("../main_images/UserImage/UserImageSnow.jpg"),
-    new userImage("../main_images/UserImage/UserImageSprout.jpg"),
-];
-
 var activities = {
     outside: {
         active: outsideActiveArray,
@@ -153,7 +132,7 @@ function getActivity(activityOptions) {
 // document.getElementById("userDoesNotLike").addEventListener("click", getActivity);
 
 
-// choices.appendChild(button);
+// document.getElementById("choices").appendChild(button);
 
 
 function button(type) {
@@ -161,13 +140,6 @@ function button(type) {
     var buttonName = document.createTextNode(type);
     var empty =
     button.appendChild(buttonName);
-//outside-branch
-    if (type == "Ingest"){
-        button.addEventListener("click", showMeIngest); 
-    } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drink") {
-        button.addEventListener("click", getToResultsPage);
-    } 
-//
     if (type.indexOf("feed") > 0){
         button.addEventListener("click", showMeIngest);
     } else {
@@ -179,21 +151,12 @@ function button(type) {
     } else if (type.includes("Active") || type.includes("Calm")) {
         button.addEventListener("click", getToResultsPage);
     }
-//master
 
     else {
         button.addEventListener("click", showMeTwoButtons);
     }
-// outside-branch
-
-    if (choices){
-        choices.appendChild(button);   
-    }
-    
-//
     document.getElementById("choices").appendChild(button);
 
-//master
 }
 
 function showMeThreeButtons() {
@@ -203,13 +166,13 @@ function showMeThreeButtons() {
 }
 
 function showMeTwoButtons() {
-    choices.innerHTML = "";
+    document.getElementById("choices").innerHTML = "";
     button("Active");
     button("Calm");
 }
 
 function showMeIngest() {
-    choices.innerHTML = "";
+    document.getElementById("choices").innerHTML = "";
     button("Food");
     button("Drinks");
 }
@@ -219,12 +182,6 @@ function getToResultsPage() {
 
     var updatedURL = url.replace("home", "results");
     console.log(updatedURL);
-// outside-branch
-    window.location = updatedURL; 
-}
-
-window.addEventListener("load", showMeThreeButtons);
-//
     window.location = updatedURL;
 
 
@@ -236,4 +193,3 @@ window.addEventListener("load", showMeThreeButtons);
 
 
 // add event listeners to each button, get new buttons to show when other buttons get clicked!
-// master
