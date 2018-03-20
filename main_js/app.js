@@ -159,7 +159,6 @@ function getActivity(activityOptions) {
 function button(type) {
     var button = document.createElement("BUTTON");
     var buttonName = document.createTextNode(type);
-    var empty =
     button.appendChild(buttonName);
     if (type == "Ingest"){
         button.addEventListener("click", showMeIngest);
@@ -204,3 +203,4 @@ function getToResultsPage() {
 }
 
 window.addEventListener("load", showMeThreeButtons);
+
