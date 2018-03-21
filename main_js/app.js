@@ -13,6 +13,7 @@ var userImage = function (image){
     this.name = "";
 }
 
+//different arrays depending on choices
 var foodArray = [
     new Activity("Rudy's Pizza", "../main_images/ingest/rudys.jpg", "www.rudysgourmetpizza.com", "2443 SE Powell Blvd, Portland, OR 97202"),
     new Activity("Loving Hut", "../main_images/ingest/lovinghut.jpg", "https://lovinghut.us/portland", "1239 SW Jefferson St, Portland, OR 97201"),
@@ -54,15 +55,15 @@ var insideActiveArray = [
 
 var insideCalmArray = [
     new Activity("Grand Central Bowling", "../main_images/indoor/calm/GrandCentralBowling.png", "http://www.thegrandcentralbowl.com/#home-section", "Buckman 808 SE Morrison St, Portland, OR 97214"),
-    new Activity("Harvey’s Comedy Club", "../main_images/indoor/calm/HarveyComedyClub", "https://www.harveyscomedyclub.com/", "436 NW 6th Ave, Portland, OR 97209"),
-    new Activity("Oregon museum of science and industry (OMSI)", "../main_images/indoor/calm/omsi", "https://omsi.edu/", "1945 SE Water Ave, Portland, OR 97214 "),
+    new Activity("Harvey’s Comedy Club", "../main_images/indoor/calm/HarveyComedyClub.jpeg", "https://www.harveyscomedyclub.com/", "436 NW 6th Ave, Portland, OR 97209"),
+    new Activity("Oregon museum of science and industry (OMSI)", "../main_images/indoor/calm/omsi.jpeg", "https://omsi.edu/", "1945 SE Water Ave, Portland, OR 97214 "),
     new Activity("Seahorse Aquarium Supply", "../main_images/indoor/calm/Seahorse.jpeg", "https://seahorse-nw.com/", "106 NE Russet St, Portland, OR 97211"),
     new Activity("PDX Night Market", "../main_images/indoor/calm/PDXNightMarket.jpeg", "PDXNM.com", "100 SE Alder St, Portland OR, 97214"),
     new Activity("Ilani Casino", "../main_images/indoor/calm/illani.jpeg", "https://ilaniresort.com/", "1 Cowlitz Way, Ridgefield, WA 98642"),
     new Activity("Big als", "../main_images/indoor/calm/bigAls.jpeg", "https://www.ilovebigals.com/beaverton/", "14950 SW Barrows Rd, Beaverton, OR 97007"),
     new Activity("Costco", "../main_images/indoor/calm/costco.jpeg", "https://m.costco.com/warehouse-locations", "15901 SE Jenkins Rd, Aloha, OR 97007"),
     new Activity("Punch Bowl Social", "../main_images/indoor/calm/PunchBowlSocial.jpeg", "http://www.punchbowlsocial.com/location/portland", "340 SW Morrison St Portland, OR 97204"),
-    new Activity("Ground Kontrol", "../main_images/indoor/calm/", "https://groundkontrol.com/groundKontrol.jpg", "115 NW 5th Ave Portland, OR 97209"),
+    new Activity("Ground Kontrol", "../main_images/indoor/calm/groundKontrol.jpg", "https://groundkontrol.com/groundKontrol.jpg", "115 NW 5th Ave Portland, OR 97209"),
 ];
 
 var outsideActiveArray = [
@@ -72,8 +73,8 @@ var outsideActiveArray = [
     new Activity("Mt. Hood Meadows", "../main_images/Outside/MountHoodMeadows.jpg", "https://www.skihood.com/", "14040 Hwy 35PO Box 470Mt. Hood, OR 97041"),
     new Activity("Brew Group PDX", "../main_images/Outside/BrewGroup.jpg", "https://www.brewgrouppdx.com", "1425 NW Flanders St. Portland, OR 97209"),
     new Activity("Jogging in Portland!", "../main_images/Outside/JogginginPortland.jpg", "https://fitt.co/portland/best-run-portland/", "Portland, OR"),
-    new Activity("Wildwood Adventures", "../main_images/Outside/WildWoodTours", "https://www.wildwoodtours.com/tours/columbia-gorge-tours/", "Portland, OR"),
-    new Activity("Trackers Portland", "../main_images.Outside/Archery.jpg", "https://trackerspdx.com/archery.php", "Trackers Earth Portland 4617 SE Milwaukie Avenue Portland, OR 97202"),
+    new Activity("Wildwood Adventures", "../main_images/Outside/WildWoodTours.jpeg", "https://www.wildwoodtours.com/tours/columbia-gorge-tours/", "Portland, OR"),
+    new Activity("Trackers Portland", "../main_images/Outside/Archery.jpg", "https://trackerspdx.com/archery.php", "Trackers Earth Portland 4617 SE Milwaukie Avenue Portland, OR 97202"),
     new Activity("Fly Style Paragliding", "../main_images/Outside/Paragliding.jpg", "http://www.flystyleparagliding.com", "Hood River, OR"),
     new Activity("iFly!", "../main_images/Outside/IFly.jpeg", "https://www.iflyworld.com/?keyword=Ifly%20portland&MatchType=e&creative=220959825278&Placement=&gclid=EAIaIQobChMIq9DU7tTv2QIV1uDICh1nawdQEAAYASAAEgJS6_D_BwE", "10645 SW Greenburg Rd Tigard, OR 97223"),
 ];
@@ -91,6 +92,7 @@ var outsideCalmArray = [
     new Activity("Willamette Valley Wine Tasting", "../main_images/Outside/WillametteValleyWine.jpeg", "https://www.wvv.com/", "8800 Enchanted Way SE Turner, OR 97392"),
 ];
 
+//array for individual user image
 var userImageArray = [
     new userImage("../main_images/UserImage/UserImageBunny.jpg"),
     new userImage("../main_images/UserImage/UserImageCat.jpg"),
@@ -117,38 +119,16 @@ var activities = {
     },
     ingest: {
         food: foodArray,
-        drink: drinkArray
+        drinks: drinkArray
     },
 };
 
 var chosenCategory = "";
 var chosenSubCategory = "";
 
-// var chosenArray = activities[chosenCategory][chosenSubCategory]
 
 var pickedActivity = [];
 
-//function will choose random activity
-function getActivity(activityOptions) {
-    if (pickedActivity.length == activityOptions.length) {
-        pickedActivity = [];
-    }
-    var sendImage = document.getElementById("activity");
-    sendImage.innerHTML = "";
-    var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
-    //check if chosen image is already in pickedImages
-    //if it is, make a new chosen images
-    while (pickedActivity.includes(chosen.image)) {
-        var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
-    }
-    var image = chosen.image;
-    var foodImage = document.createElement("img");
-    foodImage.src = chosen.image;
-    document.getElementById("activity").innerHTML = chosen.name + "<br>";
-    sendImage.appendChild(foodImage);
-    document.getElementById("info").innerHTML = "<br>" + chosen.website + "<br>" + chosen.address;
-    pickedActivity.push(chosen.image);
-}
 
 // document.getElementById("userDoesNotLike").addEventListener("click", getActivity);
 
@@ -159,41 +139,31 @@ function getActivity(activityOptions) {
 function button(type) {
     var button = document.createElement("BUTTON");
     var buttonName = document.createTextNode(type);
-    var empty =
     button.appendChild(buttonName);
-//outside-branch
     if (type == "Ingest"){
-        button.addEventListener("click", showMeIngest); 
-    } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drink") {
-        button.addEventListener("click", getToResultsPage);
-    } 
-//
-    if (type.indexOf("feed") > 0){
         button.addEventListener("click", showMeIngest);
-    } else {
-        button.addEventListener("click", showMeTwoButtons);
-    }
-    document.getElementById("choices").appendChild(button);
-    if (type.includes("Ingest")){
-        button.addEventListener("click", showMeIngest);
-    } else if (type.includes("Active") || type.includes("Calm")) {
+        button.addEventListener("click", function() {
+          chosenCategory = "Ingest";
+        })
+    } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drinks") {
+        button.addEventListener("click", function() {
+          chosenSubCategory = type;
+        })
         button.addEventListener("click", getToResultsPage);
+
     }
-//master
 
     else {
         button.addEventListener("click", showMeTwoButtons);
+        button.addEventListener("click", function() {
+          chosenCategory = type;
+        })
     }
-// outside-branch
 
     if (choices){
-        choices.appendChild(button);   
+        choices.appendChild(button);
     }
-    
-//
-    document.getElementById("choices").appendChild(button);
 
-//master
 }
 
 function showMeThreeButtons() {
@@ -214,31 +184,54 @@ function showMeIngest() {
     button("Drinks");
 }
 
+//function that sends user to results page
+//will save choices in local storage
 function getToResultsPage() {
-    var url = window.location.href;
-
-    var updatedURL = url.replace("home", "results");
-    console.log(updatedURL);
-// outside-branch
-    window.location = updatedURL; 
-}
-
-window.addEventListener("load", showMeThreeButtons);
-//
-    window.location = updatedURL;
-
-
-
+  var chosen = JSON.stringify(chosenCategory.toLowerCase());
+  var subChosen = JSON.stringify(chosenSubCategory.toLowerCase());
+  localStorage.setItem("category", chosen);
+  localStorage.setItem("subCategory", subChosen);
+  var url = window.location.href;
+  var updatedURL = url.replace("home", "results");
+  console.log(updatedURL);
+  window.location = updatedURL;
 }
 
 window.addEventListener("load", showMeThreeButtons);
 
+//get category and subcategory in results page
+var category = JSON.parse(localStorage.getItem("category"));
+var subCategory = JSON.parse(localStorage.getItem("subCategory"));
+console.log(category);
+console.log(subCategory);
+var chosenArray = activities[category][subCategory];
+//function will choose random activity
 
+function getActivity(activityOptions) {
+    if (pickedActivity.length == activityOptions.length) {
+        pickedActivity = [];
+    }
+    var sendImage = document.getElementById("activity");
+    if (sendImage){
+      sendImage.innerHTML = "";
+    }
+    var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+    //check if chosen image is already in pickedImages
+    //if it is, make a new chosen images
+    while (pickedActivity.includes(chosen.image)) {
+        var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+    }
+    var image = chosen.image;
+    var foodImage = document.createElement("img");
+    foodImage.src = chosen.image;
+    if (sendImage) {
+      sendImage.innerHTML = chosen.name + "<br>";
+      sendImage.appendChild(foodImage);
+      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen.website + "'>Click Here for Website" + "</a><br>" + chosen.address;
+      pickedActivity.push(chosen.image);
+    }
+}
 
-// add event listeners to track what the user has clicked on(inside, outside, food) and also track the subcategories. When it takes user to the results page,
-//  your going to user local storage from the home page to show results. 
-
-
-
-// add event listeners to each button, get new buttons to show when other buttons get clicked!
-// master
+if (window.location.href.includes("results")) {
+  getActivity(chosenArray);
+}
