@@ -30,7 +30,7 @@ var foodArray = [
 var drinkArray = [
     new Activity("Pearl Tavern", "../main_images/ingest/pearl.jpg", "http://pearltavernpdx.com", "231 NW 11th Ave, Portland, OR 97209"),
     new Activity("The Old Portland", "../main_images/ingest/old.jpg", "http://pearltavernpdx.com", "1433 NW Quimby St, Portland, OR 97209"),
-    new Activity("Bar Casa Vale", "../main_images/ingest/vale.jpg", "www.barcasavale.com", "215 SE 9th Ave, Portland, OR 97214"),
+    new Activity("Bar Casa Vale", "../main_images/ingest/vale.jpg", "http://www.barcasavale.com", "215 SE 9th Ave, Portland, OR 97214"),
     new Activity("Century", "../main_images/ingest/century.jpg", "http://centurybarpdx.com/", "930 SE Sandy Blvd, Portland, OR 97214"),
     new Activity("The Bye and Bye", "../main_images/ingest/bye.jpg", "http://thebyeandbye.com", "1011 NE Alberta St, Portland, OR 97211"),
     new Activity("Capitol", "../main_images/ingest/capitol.jpg", "http://capitolpdx.com/", "1440 NE Broadway St, Portland, OR 97232"),
@@ -55,7 +55,7 @@ var insideActiveArray = [
 
 var insideCalmArray = [
     new Activity("Grand Central Bowling", "../main_images/indoor/calm/GrandCentralBowling.png", "http://www.thegrandcentralbowl.com/#home-section", "Buckman 808 SE Morrison St, Portland, OR 97214"),
-    new Activity("Harvey’s Comedy Club", "../main_images/indoor/calm/HarveyComedyClub.jpeg", "https://www.harveyscomedyclub.com/", "436 NW 6th Ave, Portland, OR 97209"),
+    new Activity("Harvey's Comedy Club", "../main_images/indoor/calm/HarveyComedyClub.jpeg", "https://www.harveyscomedyclub.com/", "436 NW 6th Ave, Portland, OR 97209"),
     new Activity("Oregon museum of science and industry (OMSI)", "../main_images/indoor/calm/omsi.jpeg", "https://omsi.edu/", "1945 SE Water Ave, Portland, OR 97214 "),
     new Activity("Seahorse Aquarium Supply", "../main_images/indoor/calm/Seahorse.jpeg", "https://seahorse-nw.com/", "106 NE Russet St, Portland, OR 97211"),
     new Activity("PDX Night Market", "../main_images/indoor/calm/PDXNightMarket.jpeg", "PDXNM.com", "100 SE Alder St, Portland OR, 97214"),
@@ -207,6 +207,8 @@ console.log(subCategory);
 var chosenArray = activities[category][subCategory];
 //function will choose random activity
 
+
+var chosen = [];
 function getActivity(activityOptions) {
     if (pickedActivity.length == activityOptions.length) {
         pickedActivity = [];
@@ -215,11 +217,11 @@ function getActivity(activityOptions) {
     if (sendImage){
       sendImage.innerHTML = "";
     }
-    var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+    chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
     //check if chosen image is already in pickedImages
     //if it is, make a new chosen images
     while (pickedActivity.includes(chosen.image)) {
-        var chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+        chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
     }
     var image = chosen.image;
     var foodImage = document.createElement("img");
@@ -235,3 +237,28 @@ function getActivity(activityOptions) {
 if (window.location.href.includes("results")) {
   getActivity(chosenArray);
 }
+
+function getNewActivity() {
+    getActivity(chosenArray);
+  }
+
+//this will check if user is in results.html before running event listener
+ var noButton = document.getElementById("userDoesNotLike");
+ if (noButton) {
+   noButton.addEventListener("click", getNewActivity);
+ }
+
+ //if user likes activity
+ var yesButton = document.getElementById("userLikes");
+ if (yesButton) {
+   yesButton.addEventListener("click", getToPastResultsPage);
+ }
+
+//this function will take user to past results if clicks 'yes'
+ function getToPastResultsPage() {
+   localStorage.setItem("activity", JSON.stringify(chosen))
+   var url = window.location.href;
+   var updatedURL = url.replace("results", "pastresults");
+   console.log(updatedURL);
+   window.location = updatedURL;
+ }
