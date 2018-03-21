@@ -30,7 +30,7 @@ var foodArray = [
 var drinkArray = [
     new Activity("Pearl Tavern", "../main_images/ingest/pearl.jpg", "http://pearltavernpdx.com", "231 NW 11th Ave, Portland, OR 97209"),
     new Activity("The Old Portland", "../main_images/ingest/old.jpg", "http://pearltavernpdx.com", "1433 NW Quimby St, Portland, OR 97209"),
-    new Activity("Bar Casa Vale", "../main_images/ingest/vale.jpg", "www.barcasavale.com", "215 SE 9th Ave, Portland, OR 97214"),
+    new Activity("Bar Casa Vale", "../main_images/ingest/vale.jpg", "http://www.barcasavale.com", "215 SE 9th Ave, Portland, OR 97214"),
     new Activity("Century", "../main_images/ingest/century.jpg", "http://centurybarpdx.com/", "930 SE Sandy Blvd, Portland, OR 97214"),
     new Activity("The Bye and Bye", "../main_images/ingest/bye.jpg", "http://thebyeandbye.com", "1011 NE Alberta St, Portland, OR 97211"),
     new Activity("Capitol", "../main_images/ingest/capitol.jpg", "http://capitolpdx.com/", "1440 NE Broadway St, Portland, OR 97232"),
