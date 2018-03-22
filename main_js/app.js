@@ -217,20 +217,21 @@ function getActivity(activityOptions) {
     if (sendImage){
       sendImage.innerHTML = "";
     }
-    chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+    chosen.push(activityOptions[Math.floor(Math.random() * activityOptions.length)]);
     //check if chosen image is already in pickedImages
     //if it is, make a new chosen images
     while (pickedActivity.includes(chosen.image)) {
-        chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
+        chosen.pop();
+        chosen.push(activityOptions[Math.floor(Math.random() * activityOptions.length)]);
     }
-    var image = chosen.image;
+    var image = chosen[chosen.length-1].image;
     var foodImage = document.createElement("img");
-    foodImage.src = chosen.image;
+    foodImage.src = chosen[chosen.length-1].image;
     if (sendImage) {
-      sendImage.innerHTML = chosen.name + "<br>";
+      sendImage.innerHTML = chosen[chosen.length-1].name + "<br>";
       sendImage.appendChild(foodImage);
-      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen.website + "'>Click Here for Website" + "</a><br>" + chosen.address;
-      pickedActivity.push(chosen.image);
+      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen[chosen.length -1].website + "'>Click Here for Website" + "</a><br>" + chosen[chosen.length -1].address;
+      pickedActivity.push(chosen[chosen.length -1].image);
     }
 }
 
@@ -256,11 +257,22 @@ function getNewActivity() {
 
 //this function will take user to past results if clicks 'yes'
  function getToPastResultsPage() {
-   localStorage.setItem("activity", JSON.stringify(chosen))
+   var activities = JSON.parse(localStorage.getItem("activity"));
+   if (activities) {
+     activities.push(chosen);
+     localStorage.setItem("activity", JSON.stringify(activities));
+   } else {
+     localStorage.setItem("activity", JSON.stringify(chosen));
+   }
    var url = window.location.href;
    var updatedURL = url.replace("results", "pastresults");
    console.log(updatedURL);
    window.location = updatedURL;
  }
 
- var userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
+
+
+
+ //   else {
+ //   userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
+ // }
