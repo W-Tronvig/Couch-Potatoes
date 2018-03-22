@@ -208,7 +208,7 @@ var chosenArray = activities[category][subCategory];
 //function will choose random activity
 
 
-var chosen = [];
+var chosen = {};
 function getActivity(activityOptions) {
     if (pickedActivity.length == activityOptions.length) {
         pickedActivity = [];
@@ -217,21 +217,20 @@ function getActivity(activityOptions) {
     if (sendImage){
       sendImage.innerHTML = "";
     }
-    chosen.push(activityOptions[Math.floor(Math.random() * activityOptions.length)]);
+    chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
     //check if chosen image is already in pickedImages
     //if it is, make a new chosen images
     while (pickedActivity.includes(chosen.image)) {
-        chosen.pop();
-        chosen.push(activityOptions[Math.floor(Math.random() * activityOptions.length)]);
+        chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
     }
-    var image = chosen[chosen.length-1].image;
+    var image = chosen.image;
     var foodImage = document.createElement("img");
-    foodImage.src = chosen[chosen.length-1].image;
+    foodImage.src = chosen.image;
     if (sendImage) {
-      sendImage.innerHTML = chosen[chosen.length-1].name + "<br>";
+      sendImage.innerHTML = chosen.name + "<br>";
       sendImage.appendChild(foodImage);
-      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen[chosen.length -1].website + "'>Click Here for Website" + "</a><br>" + chosen[chosen.length -1].address;
-      pickedActivity.push(chosen[chosen.length -1].image);
+      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen.website + "'>Click Here for Website" + "</a><br>" + chosen.address;
+      pickedActivity.push(chosen.image);
     }
 }
 
@@ -260,15 +259,62 @@ function getNewActivity() {
    var activities = JSON.parse(localStorage.getItem("activity"));
    if (activities) {
      activities.push(chosen);
-     localStorage.setItem("activity", JSON.stringify(activities));
    } else {
-     localStorage.setItem("activity", JSON.stringify(chosen));
+     activities = [chosen];
    }
+   localStorage.setItem("activity", JSON.stringify(activities));
    var url = window.location.href;
    var updatedURL = url.replace("results", "pastresults");
    console.log(updatedURL);
    window.location = updatedURL;
  }
+
+var savedActivities = JSON.parse(localStorage.getItem("activity"));
+if (window.location.href.includes("pastresults")) {
+  console.log(savedActivities);
+}
+
+var table = document.getElementById("past_results_table");
+
+var headerNames = ["Activities", "Website"]
+function makeHeader(){
+  var rowHeader = document.createElement("tr");
+  table.appendChild(rowHeader);
+  var cellLocation = document.createElement("td");
+  cellLocation.textContent = "";
+  rowHeader.appendChild(cellLocation);
+  var totalCell = document.createElement("td");
+
+  for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
+    var cell = document.createElement("td");
+    cell.textContent = headerNames[indexHeader];
+    rowHeader.appendChild(cell);
+  }
+  // totalCell.textContent = "Total";
+  // rowHeader.appendChild(totalCell);
+}
+
+function makeTable() {
+  table.textContent= "";
+  makeHeader();
+  console.log(savedActivities);
+  for (var index = 0; index < savedActivities.length; index++) {
+    var singleActivity = savedActivities[index];
+    var activityRow = document.createElement("tr");
+    var cell = document.createElement("td");
+    cell.textContent = singleActivity.name;
+    activityRow.appendChild(cell);
+    console.log(singleActivity);
+    cell = document.createElement("td");
+    cell.textContent = singleActivity.website;
+    activityRow.appendChild(cell);
+    table.appendChild(activityRow);
+    }
+  }
+
+  if (window.location.href.includes("pastresults")) {
+    makeTable();
+  }
 
 
 
