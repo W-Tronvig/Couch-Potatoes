@@ -1,3 +1,9 @@
+h1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
 video#bgvid {
     position: fixed;
     top: 50%;
@@ -12,4 +18,41 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
+}
+#imageContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+}
+figcaption {
+    text-align: center;
+}
+.Profilepictures {
+    opacity: .3;
+}
+.figcaptionfont {
+    font-family: 'Lobster Two', cursive;
+    font-size: 25px;
+}
+#aboutUs {
+    outline-style: double;
+    border: 1px solid black;
+    outline-color: rgb(34, 8, 8);
+    text-shadow: 1px 2px rgb(31, 29, 29); 
+    font-size: 20px;
+    
+}
+background {
+    text-shadow: 3px 2px rgb(228, 213, 213); 
+    font-size: 20px;
+}
+section.findUs {
+text-align: left;
+}
+section.contactUs {
+    text-align: center;
+}
+section.WhoAreWe {
+    
+    
 }
