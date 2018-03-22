@@ -262,3 +262,5 @@ function getNewActivity() {
    console.log(updatedURL);
    window.location = updatedURL;
  }
+
+ var userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
