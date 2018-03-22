@@ -14,3 +14,7 @@ video#bgvid {
     /* background: url(polina.jpg) no-repeat; */
     background-size: cover; 
 }
+
+#past_results_table {
+    background-color: aqua;
+}
