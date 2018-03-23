@@ -354,16 +354,3 @@ function saveAvatar(event) {
 }
 
 avatarPics.addEventListener("click", saveAvatar);
-
-
-
-// function newClicks(event) {
-//   if (event.target.tagName == "IMG") {
-//     var index = event.target.src.lastIndexOf("/");
-//     var imageLocation = "images/" + event.target.src.substring(index + 1);
-//       if (.location.indexOf(imageLocation) != -1) {
-//       localStorage.setItem("pickedImage", imageLocation); //save on localStorage
-//       document.getElementById("userPics").innerHTML = "";
-//     }
-//   }
-// }
