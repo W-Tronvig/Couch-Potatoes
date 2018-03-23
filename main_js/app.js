@@ -10,7 +10,6 @@ var Activity = function (name, image, website, address) {
 
 var userImage = function (image){
     this.image = image;
-    this.name = "";
 }
 
 //different arrays depending on choices
@@ -93,7 +92,7 @@ var outsideCalmArray = [
 ];
 
 //array for individual user image
-var userImageArray = [
+var userImages = [
     new userImage("../main_images/UserImage/UserImageBunny.jpg"),
     new userImage("../main_images/UserImage/UserImageCat.jpg"),
     new userImage("../main_images/UserImage/UserImageCookie.jpg"),
@@ -316,9 +315,42 @@ function makeTable() {
     makeTable();
   }
 
+var userName = document.getElementById("userInput").value;
+console.log(userName);
 
 
+//this function displays 12 user images
+function showImages() {
+  var images = document.getElementById("userPics");
+  for (var index = 0; index < userImages.length; index++) {
+    var img = document.createElement('img');
+    img.setAttribute("src", userImages[index].image);
+    images.appendChild(img);
+  }
+}
 
- //   else {
- //   userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
- // }
+//this function will save user input and saves it to local localStorage
+//once button is clicked, form will disappear
+function saveUserName() {
+  var userName = document.getElementById("userInput").value;
+  localStorage.setItem("userName", userName);
+  document.getElementById("form").innerHTML = "Welcome " + userName +"! Select an Image";
+  showImages();
+}
+
+var avatarPics = document.getElementById("userPics")
+
+function saveAvatar(event) {
+  if (event.target.tagName == "IMG") {
+    var index = event.target.src.lastIndexOf("/");
+    var imageLocation = "../main_images/UserImage" + event.target.src.substring(index);
+    console.log(imageLocation);
+    localStorage.setItem("avatar", imageLocation);
+    avatarPics.innerHTML = "";
+    var img = document.createElement('img');
+    img.setAttribute("src", imageLocation);
+    avatarPics.appendChild(img);
+  }
+}
+
+avatarPics.addEventListener("click", saveAvatar);
