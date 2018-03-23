@@ -208,7 +208,7 @@ var chosenArray = activities[category][subCategory];
 //function will choose random activity
 
 
-var chosen = [];
+var chosen = {};
 function getActivity(activityOptions) {
     if (pickedActivity.length == activityOptions.length) {
         pickedActivity = [];
@@ -256,11 +256,69 @@ function getNewActivity() {
 
 //this function will take user to past results if clicks 'yes'
  function getToPastResultsPage() {
-   localStorage.setItem("activity", JSON.stringify(chosen))
+   var activities = JSON.parse(localStorage.getItem("activity"));
+   if (activities) {
+     activities.push(chosen);
+   } else {
+     activities = [chosen];
+   }
+   localStorage.setItem("activity", JSON.stringify(activities));
    var url = window.location.href;
    var updatedURL = url.replace("results", "pastresults");
    console.log(updatedURL);
    window.location = updatedURL;
  }
 
- var userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
+var savedActivities = JSON.parse(localStorage.getItem("activity"));
+if (window.location.href.includes("pastresults")) {
+  console.log(savedActivities);
+}
+
+var table = document.getElementById("past_results_table");
+
+var headerNames = ["Activities", "Website"]
+function makeHeader(){
+  var rowHeader = document.createElement("tr");
+  table.appendChild(rowHeader);
+  var cellLocation = document.createElement("td");
+  cellLocation.textContent = "";
+  rowHeader.appendChild(cellLocation);
+  var totalCell = document.createElement("td");
+
+  for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
+    var cell = document.createElement("td");
+    cell.textContent = headerNames[indexHeader];
+    rowHeader.appendChild(cell);
+  }
+  // totalCell.textContent = "Total";
+  // rowHeader.appendChild(totalCell);
+}
+
+function makeTable() {
+  table.textContent= "";
+  makeHeader();
+  console.log(savedActivities);
+  for (var index = 0; index < savedActivities.length; index++) {
+    var singleActivity = savedActivities[index];
+    var activityRow = document.createElement("tr");
+    var cell = document.createElement("td");
+    cell.textContent = singleActivity.name;
+    activityRow.appendChild(cell);
+    console.log(singleActivity);
+    cell = document.createElement("td");
+    cell.textContent = singleActivity.website;
+    activityRow.appendChild(cell);
+    table.appendChild(activityRow);
+    }
+  }
+
+  if (window.location.href.includes("pastresults")) {
+    makeTable();
+  }
+
+
+
+
+ //   else {
+ //   userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
+ // }
