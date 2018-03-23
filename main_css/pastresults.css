@@ -17,3 +17,17 @@ video#bgvid {
 #past_results_table {
     background-color: aqua;
 }
+nav {
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+a:visited {
+    color: white;
+
+}
+a {
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+}
