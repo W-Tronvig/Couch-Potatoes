@@ -10,7 +10,6 @@ var Activity = function (name, image, website, address) {
 
 var userImage = function (image){
     this.image = image;
-    this.name = "";
 }
 
 //different arrays depending on choices
@@ -335,16 +334,34 @@ function showImages() {
 function saveUserName() {
   var userName = document.getElementById("userInput").value;
   localStorage.setItem("userName", userName);
-  document.getElementById("form").innerHTML = "Welcome " + userName +"!";
+  document.getElementById("form").innerHTML = "Welcome " + userName +"! Select an Image";
   showImages();
 }
+
+var avatarPics = document.getElementById("userPics")
+
+function saveAvatar(event) {
+  if (event.target.tagName == "IMG") {
+    var index = event.target.src.lastIndexOf("/");
+    var imageLocation = "../main_images/UserImage" + event.target.src.substring(index);
+    console.log(imageLocation);
+    localStorage.setItem("avatar", imageLocation);
+    avatarPics.innerHTML = "";
+    var img = document.createElement('img');
+    img.setAttribute("src", imageLocation);
+    avatarPics.appendChild(img);
+  }
+}
+
+avatarPics.addEventListener("click", saveAvatar);
+
+
 
 // function newClicks(event) {
 //   if (event.target.tagName == "IMG") {
 //     var index = event.target.src.lastIndexOf("/");
 //     var imageLocation = "images/" + event.target.src.substring(index + 1);
-//     for (var indexClick = 0; indexClick < imagesArray.length; indexClick++) {
-//       if (imagesArray[indexClick].location.indexOf(imageLocation) != -1) {
+//       if (.location.indexOf(imageLocation) != -1) {
 //       localStorage.setItem("pickedImage", imageLocation); //save on localStorage
 //       document.getElementById("userPics").innerHTML = "";
 //     }
