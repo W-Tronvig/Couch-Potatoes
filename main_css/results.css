@@ -17,11 +17,12 @@ video#bgvid {
 
 img {
     border-radius: 20px;
-    border: 10px solid black;
+    border: 3px solid black;
     animation-duration: .7s;
     animation-name: bounceIn;
     width: 400px;
     height: 400px;
+    opacity: .8;
 }
 
 @keyframes bounceIn {

@@ -14,9 +14,169 @@ video#bgvid {
     background-size: cover;
 }
 
+h1 {
+    text-align: center;
+    color: rgb(9, 5, 75);
+    font-size: 80px;
+    font-family: 'Monoton', cursive; 
+    opacity: .6;
+    letter-spacing: 10px;
+    word-spacing: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    }
+p {
+    background-color: beige;
+    color: black;
+    font-size: 24px;
+    opacity: .5;
+    width: 580px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+input{
+    font-size: 30px;
+}
+
+#form {
+    font-size: 30px;
+    background-color: beige;
+    opacity: .6;
+    width: 200px;
+    border-radius: 10px;
+}
+
 img {
     border-radius: 20px;
-    border: 10px solid black;
-    width: 50px;
+    border: 2px solid black;
+    width: 100px;
     height: 50px;
+    opacity: .8;
+    animation-duration: .7s;
+    animation-name: bounceIn;
 }
+ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+ul li {
+    display: inline;
+    list-style: none;
+    font-size:  18px;
+    margin-right: 80px; 
+    padding: 10px;
+    background-color: beige;
+    border-radius: 10px; 
+    opacity: .5;
+    height: 20px;
+}
+
+footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:30px;
+    text-align: center;
+}
+
+div#userPics {
+    display: flex;
+    justify-content: space-around;
+}
+#slidetop {
+    position: relative;
+    left: -1400px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 4s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+.slideright {
+    position: relative;
+    left: -1400px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 7s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+#slideone {
+    position: relative;
+    left: -1000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 9.3s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+#slidetwo {
+    position: relative;
+    left: -1000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 10s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+#slidethree {
+    position: relative;
+    left: -1000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 10.8s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+/* stack overflow code modified from Christofer Vilander */
+
+@keyframes bounceIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
