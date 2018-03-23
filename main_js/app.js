@@ -93,7 +93,7 @@ var outsideCalmArray = [
 ];
 
 //array for individual user image
-var userImageArray = [
+var userImages = [
     new userImage("../main_images/UserImage/UserImageBunny.jpg"),
     new userImage("../main_images/UserImage/UserImageCat.jpg"),
     new userImage("../main_images/UserImage/UserImageCookie.jpg"),
@@ -316,9 +316,37 @@ function makeTable() {
     makeTable();
   }
 
+var userName = document.getElementById("userInput").value;
+console.log(userName);
 
 
+//this function displays 12 user images
+function showImages() {
+  var images = document.getElementById("userPics");
+  for (var index = 0; index < userImages.length; index++) {
+    var img = document.createElement('img');
+    img.setAttribute("src", userImages[index].image);
+    images.appendChild(img);
+  }
+}
 
- //   else {
- //   userChoiceList = [JSON.parse(localStorage.getItem("activity"))]; //for Nancy
- // }
+//this function will save user input and saves it to local localStorage
+//once button is clicked, form will disappear
+function saveUserName() {
+  var userName = document.getElementById("userInput").value;
+  localStorage.setItem("userName", userName);
+  document.getElementById("form").innerHTML = "Welcome " + userName +"!";
+  showImages();
+}
+
+// function newClicks(event) {
+//   if (event.target.tagName == "IMG") {
+//     var index = event.target.src.lastIndexOf("/");
+//     var imageLocation = "images/" + event.target.src.substring(index + 1);
+//     for (var indexClick = 0; indexClick < imagesArray.length; indexClick++) {
+//       if (imagesArray[indexClick].location.indexOf(imageLocation) != -1) {
+//       localStorage.setItem("pickedImage", imageLocation); //save on localStorage
+//       document.getElementById("userPics").innerHTML = "";
+//     }
+//   }
+// }
