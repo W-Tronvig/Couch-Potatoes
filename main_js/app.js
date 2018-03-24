@@ -232,6 +232,7 @@ function getActivity(activityOptions) {
 }
 
 if (window.location.href.includes("results")) {
+    getLocalStorage(); //added during avatar creation on Saturday
     getActivity(chosenArray);
 }
 
@@ -274,21 +275,20 @@ if (window.location.href.includes("pastresults")) {
 var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
-function makeHeader() {
-    var rowHeader = document.createElement("tr");
-    table.appendChild(rowHeader);
-    var cellLocation = document.createElement("td");
-    cellLocation.textContent = "";
-    rowHeader.appendChild(cellLocation);
-    var totalCell = document.createElement("td");
+function makeHeader(){
+  var rowHeader = document.createElement("th");
+  table.appendChild(rowHeader);
+  var cellLocation = document.createElement("td");
+  cellLocation.textContent = "";
+  var totalCell = document.createElement("td");
 
-    for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
-        var cell = document.createElement("td");
-        cell.textContent = headerNames[indexHeader];
-        rowHeader.appendChild(cell);
-    }
-    // totalCell.textContent = "Total";
-    // rowHeader.appendChild(totalCell);
+  for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
+    var cell = document.createElement("td");
+    cell.textContent = headerNames[indexHeader];
+    rowHeader.appendChild(cell);
+  }
+  // totalCell.textContent = "Total";
+  // rowHeader.appendChild(totalCell);
 }
 
 function makeTable() {
@@ -309,9 +309,10 @@ function makeTable() {
     }
 }
 
-if (window.location.href.includes("pastresults")) {
-    makeTable();
-}
+  if (window.location.href.includes("pastresults")) {
+        getLocalStorage(); // added during avatar creation on Saturday
+        makeTable();
+  }
 
 var userName = document.getElementById("userInput").value;
 console.log(userName);
@@ -354,24 +355,7 @@ function saveAvatar(event) {
 avatarPics.addEventListener("click", saveAvatar);
 
 function getLocalStorage() {
-    var getName = localStorage.getItem("userName");
-    console.log(getName);
-    var getAvatar = localStorage.getItem("avatar");
-    console.log(getAvatar);  
-    if(display) {
-        var display = document.getElementById("showAvatar").innerHTML = getName + "<img src='"+ getAvatar +"'>";
-    }
+    var getName = localStorage.getItem('userName');
+    var getAvatar = localStorage.getItem('avatar');
+    document.getElementById("showAvatar").innerHTML = getName + "<br><img src='" + getAvatar + "'>'";
 }
-
-function runOnPages() {
-    if (window.location.href.includes("results")) {
-        getLocalStorage()
-    }
-}
-
-
-window.addEventListener("load", runOnPages);
-
-
-
-
