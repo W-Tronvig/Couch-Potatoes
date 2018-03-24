@@ -8,7 +8,7 @@ var Activity = function (name, image, website, address) {
     this.address = address;
 }
 
-var userImage = function (image){
+var userImage = function (image) {
     this.image = image;
 }
 
@@ -135,14 +135,14 @@ function button(type) {
     var button = document.createElement("BUTTON");
     var buttonName = document.createTextNode(type);
     button.appendChild(buttonName);
-    if (type == "Ingest"){
+    if (type == "Ingest") {
         button.addEventListener("click", showMeIngest);
-        button.addEventListener("click", function() {
-          chosenCategory = "Ingest";
+        button.addEventListener("click", function () {
+            chosenCategory = "Ingest";
         })
     } else if (type == "Active" || type == "Calm" || type == "Food" || type == "Drinks") {
-        button.addEventListener("click", function() {
-          chosenSubCategory = type;
+        button.addEventListener("click", function () {
+            chosenSubCategory = type;
         })
         button.addEventListener("click", getToResultsPage);
 
@@ -150,12 +150,12 @@ function button(type) {
 
     else {
         button.addEventListener("click", showMeTwoButtons);
-        button.addEventListener("click", function() {
-          chosenCategory = type;
+        button.addEventListener("click", function () {
+            chosenCategory = type;
         })
     }
 
-    if (choices){
+    if (choices) {
         choices.appendChild(button);
     }
 
@@ -182,17 +182,18 @@ function showMeIngest() {
 //function that sends user to results page
 //will save choices in local storage
 function getToResultsPage() {
-  var chosen = JSON.stringify(chosenCategory.toLowerCase());
-  var subChosen = JSON.stringify(chosenSubCategory.toLowerCase());
-  localStorage.setItem("category", chosen);
-  localStorage.setItem("subCategory", subChosen);
-  var url = window.location.href;
-  var updatedURL = url.replace("home", "results");
-  console.log(updatedURL);
-  window.location = updatedURL;
+    var chosen = JSON.stringify(chosenCategory.toLowerCase());
+    var subChosen = JSON.stringify(chosenSubCategory.toLowerCase());
+    localStorage.setItem("category", chosen);
+    localStorage.setItem("subCategory", subChosen);
+    var url = window.location.href;
+    var updatedURL = url.replace("home", "results");
+    console.log(updatedURL);
+    window.location = updatedURL;
 }
 
 window.addEventListener("load", showMeThreeButtons);
+
 
 //get category and subcategory in results page
 var category = JSON.parse(localStorage.getItem("category"));
@@ -203,14 +204,15 @@ var chosenArray = activities[category][subCategory];
 //function will choose random activity
 
 
+
 var chosen = {};
 function getActivity(activityOptions) {
     if (pickedActivity.length == activityOptions.length) {
         pickedActivity = [];
     }
     var sendImage = document.getElementById("activity");
-    if (sendImage){
-      sendImage.innerHTML = "";
+    if (sendImage) {
+        sendImage.innerHTML = "";
     }
     chosen = activityOptions[Math.floor(Math.random() * activityOptions.length)];
     //check if chosen image is already in pickedImages
@@ -222,94 +224,94 @@ function getActivity(activityOptions) {
     var foodImage = document.createElement("img");
     foodImage.src = chosen.image;
     if (sendImage) {
-      sendImage.innerHTML = chosen.name + "<br>";
-      sendImage.appendChild(foodImage);
-      document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen.website + "'>Click Here for Website" + "</a><br>" + chosen.address;
-      pickedActivity.push(chosen.image);
+        sendImage.innerHTML = chosen.name + "<br>";
+        sendImage.appendChild(foodImage);
+        document.getElementById("info").innerHTML = "<br><a target='_blank' href='" + chosen.website + "'>Click Here for Website" + "</a><br>" + chosen.address;
+        pickedActivity.push(chosen.image);
     }
 }
 
 if (window.location.href.includes("results")) {
-  getActivity(chosenArray);
+    getActivity(chosenArray);
 }
 
 function getNewActivity() {
     getActivity(chosenArray);
-  }
+}
 
 //this will check if user is in results.html before running event listener
- var noButton = document.getElementById("userDoesNotLike");
- if (noButton) {
-   noButton.addEventListener("click", getNewActivity);
- }
+var noButton = document.getElementById("userDoesNotLike");
+if (noButton) {
+    noButton.addEventListener("click", getNewActivity);
+}
 
- //if user likes activity
- var yesButton = document.getElementById("userLikes");
- if (yesButton) {
-   yesButton.addEventListener("click", getToPastResultsPage);
- }
+//if user likes activity
+var yesButton = document.getElementById("userLikes");
+if (yesButton) {
+    yesButton.addEventListener("click", getToPastResultsPage);
+}
 
 //this function will take user to past results if clicks 'yes'
- function getToPastResultsPage() {
-   var activities = JSON.parse(localStorage.getItem("activity"));
-   if (activities) {
-     activities.push(chosen);
-   } else {
-     activities = [chosen];
-   }
-   localStorage.setItem("activity", JSON.stringify(activities));
-   var url = window.location.href;
-   var updatedURL = url.replace("results", "pastresults");
-   console.log(updatedURL);
-   window.location = updatedURL;
- }
+function getToPastResultsPage() {
+    var activities = JSON.parse(localStorage.getItem("activity"));
+    if (activities) {
+        activities.push(chosen);
+    } else {
+        activities = [chosen];
+    }
+    localStorage.setItem("activity", JSON.stringify(activities));
+    var url = window.location.href;
+    var updatedURL = url.replace("results", "pastresults");
+    console.log(updatedURL);
+    window.location = updatedURL;
+}
 
 var savedActivities = JSON.parse(localStorage.getItem("activity"));
 if (window.location.href.includes("pastresults")) {
-  console.log(savedActivities);
+    console.log(savedActivities);
 }
 
 var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
-function makeHeader(){
-  var rowHeader = document.createElement("tr");
-  table.appendChild(rowHeader);
-  var cellLocation = document.createElement("td");
-  cellLocation.textContent = "";
-  rowHeader.appendChild(cellLocation);
-  var totalCell = document.createElement("td");
+function makeHeader() {
+    var rowHeader = document.createElement("tr");
+    table.appendChild(rowHeader);
+    var cellLocation = document.createElement("td");
+    cellLocation.textContent = "";
+    rowHeader.appendChild(cellLocation);
+    var totalCell = document.createElement("td");
 
-  for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
-    var cell = document.createElement("td");
-    cell.textContent = headerNames[indexHeader];
-    rowHeader.appendChild(cell);
-  }
-  // totalCell.textContent = "Total";
-  // rowHeader.appendChild(totalCell);
+    for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
+        var cell = document.createElement("td");
+        cell.textContent = headerNames[indexHeader];
+        rowHeader.appendChild(cell);
+    }
+    // totalCell.textContent = "Total";
+    // rowHeader.appendChild(totalCell);
 }
 
 function makeTable() {
-  table.textContent= "";
-  makeHeader();
-  console.log(savedActivities);
-  for (var index = 0; index < savedActivities.length; index++) {
-    var singleActivity = savedActivities[index];
-    var activityRow = document.createElement("tr");
-    var cell = document.createElement("td");
-    cell.textContent = singleActivity.name;
-    activityRow.appendChild(cell);
-    console.log(singleActivity);
-    cell = document.createElement("td");
-    cell.textContent = singleActivity.website;
-    activityRow.appendChild(cell);
-    table.appendChild(activityRow);
+    table.textContent = "";
+    makeHeader();
+    console.log(savedActivities);
+    for (var index = 0; index < savedActivities.length; index++) {
+        var singleActivity = savedActivities[index];
+        var activityRow = document.createElement("tr");
+        var cell = document.createElement("td");
+        cell.textContent = singleActivity.name;
+        activityRow.appendChild(cell);
+        console.log(singleActivity);
+        cell = document.createElement("td");
+        cell.textContent = singleActivity.website;
+        activityRow.appendChild(cell);
+        table.appendChild(activityRow);
     }
-  }
+}
 
-  if (window.location.href.includes("pastresults")) {
+if (window.location.href.includes("pastresults")) {
     makeTable();
-  }
+}
 
 var userName = document.getElementById("userInput").value;
 console.log(userName);
@@ -317,36 +319,59 @@ console.log(userName);
 
 //this function displays 12 user images
 function showImages() {
-  var images = document.getElementById("userPics");
-  for (var index = 0; index < userImages.length; index++) {
-    var img = document.createElement('img');
-    img.setAttribute("src", userImages[index].image);
-    images.appendChild(img);
-  }
+    var images = document.getElementById("userPics");
+    for (var index = 0; index < userImages.length; index++) {
+        var img = document.createElement('img');
+        img.setAttribute("src", userImages[index].image);
+        images.appendChild(img);
+    }
 }
 
 //this function will save user input and saves it to local localStorage
 //once button is clicked, form will disappear
 function saveUserName() {
-  var userName = document.getElementById("userInput").value;
-  localStorage.setItem("userName", userName);
-  document.getElementById("form").innerHTML = "Welcome " + userName +"! Please Select an Image Below!";
-  showImages();
+    var userName = document.getElementById("userInput").value;
+    localStorage.setItem("userName", userName);
+    document.getElementById("form").innerHTML = "Welcome " + userName + "! Please Select an Image Below!";
+    showImages();
 }
 
 var avatarPics = document.getElementById("userPics")
 
 function saveAvatar(event) {
-  if (event.target.tagName == "IMG") {
-    var index = event.target.src.lastIndexOf("/");
-    var imageLocation = "../main_images/UserImage" + event.target.src.substring(index);
-    console.log(imageLocation);
-    localStorage.setItem("avatar", imageLocation);
-    avatarPics.innerHTML = "";
-    var img = document.createElement('img');
-    img.setAttribute("src", imageLocation);
-    avatarPics.appendChild(img);
-  }
+    if (event.target.tagName == "IMG") {
+        var index = event.target.src.lastIndexOf("/");
+        var imageLocation = "../main_images/UserImage" + event.target.src.substring(index);
+        console.log(imageLocation);
+        localStorage.setItem("avatar", imageLocation);
+        avatarPics.innerHTML = "";
+        var img = document.createElement('img');
+        img.setAttribute("src", imageLocation);
+        avatarPics.appendChild(img);
+    }
 }
 
 avatarPics.addEventListener("click", saveAvatar);
+
+function getLocalStorage() {
+    var getName = localStorage.getItem("userName");
+    console.log(getName);
+    var getAvatar = localStorage.getItem("avatar");
+    console.log(getAvatar);  
+    if(display) {
+        var display = document.getElementById("showAvatar").innerHTML = getName + "<img src='"+ getAvatar +"'>";
+    }
+}
+
+function runOnPages() {
+    if (window.location.href.includes("results")) {
+        getLocalStorage()
+    }
+}
+
+
+window.addEventListener("load", runOnPages);
+
+
+
+

@@ -95,3 +95,18 @@ p {
     font-family: 'Shadows Into Light', cursive;
     font-size: 20px;
 }
+.bio {
+    outline-style: double;
+    border: 1px solid black;
+    outline-color: rgb(34, 8, 8);
+    text-shadow: 1px 1px rgb(31, 29, 29); 
+    height: 200px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color:rgb(155, 175, 220);opacity:0.6;
+    font-family: 'Shadows Into Light', cursive;
+}
+.ourInfo, .websiteInfo  {
+    text-align: center;
+}
