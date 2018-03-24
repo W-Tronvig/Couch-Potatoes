@@ -44,6 +44,10 @@ input{
     text-align: center;
     margin: auto;   
     display: block;
+    background-color: rgb(48, 27, 168);
+    opacity: .6; 
+    border-radius: 10px;
+    color: white;
 }
 
 #form {
@@ -101,7 +105,7 @@ button {
 }
 
 footer {
-    position:fixed;
+    position: fixed;
     bottom:0;
     left:0;
     right:0;
@@ -116,7 +120,7 @@ div#userPics {
 }
 #slidetop {
     position: relative;
-    left: -1400px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -132,7 +136,7 @@ div#userPics {
 }
 .slideright {
     position: relative;
-    left: -1500px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -148,11 +152,12 @@ div#userPics {
 }
 #slideone {
     position: relative;
-    left: -1200px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
     animation-delay: 9.3s;
+    margin-top: 5px;
 }
 
 @-webkit-keyframes slide {
@@ -164,7 +169,7 @@ div#userPics {
 }
 #slidetwo {
     position: relative;
-    left: -1200px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -180,7 +185,7 @@ div#userPics {
 }
 #slidethree {
     position: relative;
-    left: -1200px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -196,7 +201,7 @@ div#userPics {
 }
 #slidefour {
     position: relative;
-    left: -1200px;
+    left: -2000px;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -226,5 +231,6 @@ div#userPics {
     }
   }
   #userInput {
-      background-color: white;
+      background-color:  rgb(48, 27, 168);
+      margin-bottom: 15px;
   }
