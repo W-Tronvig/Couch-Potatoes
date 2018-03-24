@@ -1,3 +1,13 @@
+h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 30px;
+}
 video#bgvid {
     position: fixed;
     top: 50%;
@@ -12,4 +22,91 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
+}
+#imageContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+}
+figcaption {
+    text-align: center;
+}
+.Profilepictures {
+    opacity: .5;
+    animation-duration: 15s;
+    animation-name: pictureIn;
+}
+.figcaptionfont {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 25px;
+}
+#aboutUs {
+    outline-style: double;
+    border: 1px solid black;
+    outline-color: rgb(34, 8, 8);
+    text-shadow: 1px 1px rgb(31, 29, 29); 
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color:rgb(155, 175, 220);opacity:0.6;
+    font-family: 'Shadows Into Light', cursive;
+
+}
+a:visited {
+    color: white;
+
+}
+a {
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+}
+nav {
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.findUs {
+    width: 388px;
+}
+.contactUs {
+    width: 388px;
+}
+
+p {
+    font-family: 'Nanum Myeongjo', serif;
+}
+@keyframes pictureIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+    }
+.contactUs a {
+    text-decoration-line: none;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+}
+.bio {
+    outline-style: double;
+    border: 1px solid black;
+    outline-color: rgb(34, 8, 8);
+    text-shadow: 1px 1px rgb(31, 29, 29); 
+    height: 200px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color:rgb(155, 175, 220);opacity:0.6;
+    font-family: 'Shadows Into Light', cursive;
+}
+.ourInfo, .websiteInfo  {
+    text-align: center;
 }
