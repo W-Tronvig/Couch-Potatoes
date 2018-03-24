@@ -13,7 +13,119 @@ video#bgvid {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
 }
+h1 {
+    text-align: center;
+    color: rgb(9, 5, 75);
+    font-size: 80px;
+    font-family: 'Monoton', cursive; 
+    opacity: .9;
+    letter-spacing: 10px;
+    word-spacing: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    }
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    }
+    
+ul li {
+display: inline;
+list-style: none;
+font-size:  18px;
+margin-right: 80px; 
+padding: 10px;
+background-color: beige;
+border-radius: 10px; 
+opacity: .5;
+height: 20px;
+border: 1px solid black;
+}
 
-#past_results_table {
-    background-color: aqua;
+main {
+width: 500px;
+margin: 0 auto; 
+}
+
+h5 {
+font-size: 40px;
+text-align: center;
+background-color: beige;
+opacity: .7;
+border-radius: 10px;
+border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+footer {
+position:fixed;
+color: white;
+bottom:0;
+left:0;
+right:0;
+height:30px;
+text-align: center;
+}
+
+#table {
+background-color: beige;
+opacity: .7;
+border-radius: 10px;
+border: 1px solid black;
+display: flex;
+justify-content: space-around;
+}
+
+#slideright {
+    position: relative;
+    right: -2000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 4s;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}
+#sliderightnav {
+    position: relative;
+    right: -2000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 6s;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}
+.sliderightusername {
+    position: relative;
+    right: -2000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 7s;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
 }

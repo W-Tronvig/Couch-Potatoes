@@ -234,7 +234,8 @@ function getActivity(activityOptions) {
 }
 
 if (window.location.href.includes("results")) {
-  getActivity(chosenArray);
+    getLocalStorage(); //added during avatar creation on Saturday
+    getActivity(chosenArray);
 }
 
 function getNewActivity() {
@@ -277,11 +278,10 @@ var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
 function makeHeader(){
-  var rowHeader = document.createElement("tr");
+  var rowHeader = document.createElement("th");
   table.appendChild(rowHeader);
   var cellLocation = document.createElement("td");
   cellLocation.textContent = "";
-  rowHeader.appendChild(cellLocation);
   var totalCell = document.createElement("td");
 
   for (var indexHeader = 0; indexHeader < headerNames.length; indexHeader++) {
@@ -312,7 +312,8 @@ function makeTable() {
   }
 
   if (window.location.href.includes("pastresults")) {
-    makeTable();
+        getLocalStorage(); // added during avatar creation on Saturday
+        makeTable();
   }
 
 var userName = document.getElementById("userInput").value;
@@ -354,3 +355,9 @@ function saveAvatar(event) {
 }
 
 avatarPics.addEventListener("click", saveAvatar);
+
+function getLocalStorage() {
+    var getName = localStorage.getItem('userName');
+    var getAvatar = localStorage.getItem('avatar');
+    document.getElementById("showAvatar").innerHTML = getName + "<br><img src='" + getAvatar + "'>'";
+}
