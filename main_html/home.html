@@ -2,37 +2,45 @@
 <html>
     <head>
         <link rel="stylesheet" href="../main_css/home.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
         <title>Couch Potatoes</title>
     </head>
 <body>
-        <iframe width="0" height="o" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/143239303&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-  <h1>HOME PAGE</h1>
-    <main>
-        <div id="form">
-            <form>
-                <fieldset>
-                    <label>User Name: <input type="text" name="Username" id="userName"></label> 
-                    <input type="button" name="submit" value="Submit" id="button">
-                </fieldset>
-            </form>
-        </div>
-    <div id="choices"></div>
-    </main>
-     <nav></nav>
-     <aside></aside>
-     <div>
-        <ul>
-            <li><a href="../main_html/home.html">Home Page</a></li> 
+  <h1 id="slidetop">COUCH POTATOES</h1>
+    <div>
+        <ul class="slideright">
+            <li><a href="../main_html/home.html">Home Page</a></li>
             <li><a href="../main_html/results.html">Results Page</a></li>
             <li><a href="../main_html/pastresults.html">Past Results Page</a></li>
-            <li><a href="../main_html/aboutus.html">About Us Page</a></li> 
+            <li><a href="../main_html/aboutus.html">About Us Page</a></li>
         </ul>
     </div>
+    <main>
+      <form id="form" class="slideright">
+        <input type="text" id="userInput" placeholder="Name">
+        <input type="button" value="Submit" onclick="saveUserName()">
+      </form>
+      <div id="userPics">
+      </div>
+    <div>
+        <p id="slideone">Welcome to the the Couch Potatoes Website!</p>
+        <br>
+        <p id="slidetwo">To get started, please enter your name in the field above!</p>
+        <br> 
+        <p id="slidethree">Then please select a user image after clicking the submit button!</p>
+        <br>
+    </div>
+    <div id="choices" class="slideright"></div>
+    <div id="slidefour">
+        <p>The purpose of this site is to get YOU out and about!<br> Please select from the categories above and see your results!</p>
+    </div>
+    </main>
     <footer>&copy; 2018 Couch Potatoes</footer>
     <script type="text/javascript" src="../main_js/app.js"></script>
-    <video playsinline autoplay muted loop poster="Snowy-Bench.jpg" id="bgvid">
-        <source src="../main_video/Snowy-Bench.webm" type="video/webm">
-        <source src="../main_video/Snowy-Bench.mp4" type="video/mp4">
+    <video playsinline autoplay muted loop poster="Rocky_Beach.jpg" id="bgvid">
+        <source src="../main_video/Rocky_Beach.webm" type="video/webm">
+        <source src="../main_video/Rocky_Beach.mp4" type="video/mp4">
     </video>
+    <iframe width="0%" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/110083109&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 </body>
 </html>
