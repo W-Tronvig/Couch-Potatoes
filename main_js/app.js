@@ -129,10 +129,6 @@ var chosenSubCategory = "";
 var pickedActivity = [];
 
 
-// document.getElementById("userDoesNotLike").addEventListener("click", getActivity);
-
-
-// choices.appendChild(button);
 
 
 function button(type) {

@@ -137,3 +137,19 @@ img {
     height:30px;
     text-align: center;
 }
+#userLikes:hover {
+  color: black;
+  background-color: rgb(12, 198, 58);
+}
+#userDoesNotLike:hover {
+  color: black;
+  background-color:rgb(12, 198, 58);
+}
+#infostuff{
+  width: 300px;
+  border: 25px solid green;
+  padding: 25px;
+  margin: 25px;
+
+  
+}
