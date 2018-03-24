@@ -334,7 +334,7 @@ function showImages() {
 function saveUserName() {
   var userName = document.getElementById("userInput").value;
   localStorage.setItem("userName", userName);
-  document.getElementById("form").innerHTML = "Welcome " + userName +"! Select an Image";
+  document.getElementById("form").innerHTML = "Welcome " + userName +"! Please Select an Image Below!";
   showImages();
 }
 
