@@ -278,7 +278,7 @@ var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
 function makeHeader(){
-  var rowHeader = document.createElement("th");
+  var rowHeader = document.createElement("tr");
   table.appendChild(rowHeader);
   var cellLocation = document.createElement("td");
   cellLocation.textContent = "";
