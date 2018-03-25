@@ -17,7 +17,7 @@ h1 {
     text-align: center;
     color: rgb(9, 5, 75);
     font-size: 80px;
-    font-family: 'Monoton', cursive; 
+    font-family: 'Monoton', cursive;
     opacity: .9;
     letter-spacing: 10px;
     word-spacing: 40px;
@@ -28,15 +28,15 @@ ul {
     display: flex;
     justify-content: space-evenly;
     }
-    
+
 ul li {
 display: inline;
 list-style: none;
 font-size:  18px;
-margin-right: 80px; 
+margin-right: 80px;
 padding: 10px;
 background-color: beige;
-border-radius: 10px; 
+border-radius: 10px;
 opacity: .6;
 height: 20px;
 border: 1px solid black;
@@ -47,7 +47,7 @@ li:hover {
 
 main {
 width: 500px;
-margin: 0 auto; 
+margin: 0 auto;
 }
 
 h5 {
@@ -145,14 +145,14 @@ justify-content: space-around;
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-  
+
   }
   #showAvatar img {
     width: 100px;
     height: 50px;
     opacity: .7;
     border-radius: 5px;
-    border: 1px solid black; 
+    border: 1px solid black;
   }
   .sliderightuser {
     position: relative;
@@ -162,12 +162,11 @@ justify-content: space-around;
     animation: slide 0.5s forwards;
     animation-delay: 9s;
   }
-  
+
   @-webkit-keyframes slide {
     100% { right: 0; }
   }
-  
+
   @keyframes slide {
     100% { right: 0; }
   }
-

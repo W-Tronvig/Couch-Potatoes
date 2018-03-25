@@ -75,7 +75,7 @@ var outsideActiveArray = [
     new Activity("Wildwood Adventures", "../main_images/Outside/WildWoodTours.jpeg", "https://www.wildwoodtours.com/tours/columbia-gorge-tours/", "Portland, OR"),
     new Activity("Trackers Portland", "../main_images/Outside/Archery.jpg", "https://trackerspdx.com/archery.php", "Trackers Earth Portland 4617 SE Milwaukie Avenue Portland, OR 97202"),
     new Activity("Fly Style Paragliding", "../main_images/Outside/Paragliding.jpg", "http://www.flystyleparagliding.com", "Hood River, OR"),
-    new Activity("iFly!", "../main_images/Outside/IFly.jpeg", "https://www.iflyworld.com/?keyword=Ifly%20portland&MatchType=e&creative=220959825278&Placement=&gclid=EAIaIQobChMIq9DU7tTv2QIV1uDICh1nawdQEAAYASAAEgJS6_D_BwE", "10645 SW Greenburg Rd Tigard, OR 97223"),
+    new Activity("iFly!", "../main_images/Outside/IFly.jpeg", "https://www.iflyworld.com", "10645 SW Greenburg Rd Tigard, OR 97223"),
 ];
 
 var outsideCalmArray = [
@@ -200,7 +200,11 @@ var category = JSON.parse(localStorage.getItem("category"));
 var subCategory = JSON.parse(localStorage.getItem("subCategory"));
 console.log(category);
 console.log(subCategory);
-var chosenArray = activities[category][subCategory];
+if (category == null || subCategory == null) {
+  var chosenArray = [];
+}else {
+  var chosenArray = activities[category][subCategory];
+}
 //function will choose random activity
 
 
@@ -275,10 +279,6 @@ if (window.location.href.includes("pastresults")) {
 var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
-<<<<<<< HEAD
-=======
-
->>>>>>> 883eac58a8852dc633b75c0cafb253d0ca7967a1
 function makeHeader(){
   var rowHeader = document.createElement("tr");
   table.appendChild(rowHeader);
@@ -293,10 +293,6 @@ function makeHeader(){
   }
   // totalCell.textContent = "Total";
   // rowHeader.appendChild(totalCell);
-<<<<<<< HEAD
-=======
-
->>>>>>> 883eac58a8852dc633b75c0cafb253d0ca7967a1
 }
 
 function makeTable() {
@@ -359,7 +355,7 @@ function saveAvatar(event) {
         avatarPics.appendChild(img);
     }
 }
-
+console.log(avatarPics);
 avatarPics.addEventListener("click", saveAvatar);
 
 function getLocalStorage() {

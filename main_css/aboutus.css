@@ -32,21 +32,32 @@ figcaption {
     text-align: center;
 }
 .Profilepictures {
-    opacity: .5;
+    opacity: .9;
     animation-duration: 15s;
     animation-name: pictureIn;
-    /* width:380px; */
     height: 225px;
 }
 .figcaptionfont {
     font-family: 'Nanum Myeongjo', serif;
     font-size: 25px;
 }
+img {
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+figure {
+  text-align:center;
+  border: 25px solid beige;
+  border-radius: 20px;
+  background-color: beige;
+  opacity: .7;
+}
 #aboutUs {
     outline-style: double;
     border: 1px solid black;
     outline-color: rgb(34, 8, 8);
-    text-shadow: 1px 1px rgb(31, 29, 29); 
+    text-shadow: 1px 1px rgb(31, 29, 29);
     font-size: 20px;
     display: flex;
     justify-content: space-evenly;
@@ -102,7 +113,6 @@ p {
     outline-style: double;
     border: 1px solid black;
     outline-color: rgb(34, 8, 8);
-    text-shadow: 1px 1px rgb(31, 29, 29); 
     height: 200px;
     font-size: 15px;
     display: flex;
@@ -112,5 +122,6 @@ p {
 }
 .ourInfo, .websiteInfo  {
     text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
 }
-
