@@ -37,9 +37,12 @@ margin-right: 80px;
 padding: 10px;
 background-color: beige;
 border-radius: 10px; 
-opacity: .5;
+opacity: .6;
 height: 20px;
 border: 1px solid black;
+}
+li:hover {
+    background-color: lightblue;
 }
 
 main {
@@ -58,8 +61,18 @@ border: 1px solid black;
 
 td {
     border: 1px solid black;
-    border-radius: 10px;
     padding: 5px;
+    border-radius: 6px;
+}
+td:hover {
+    background-color: lightblue;
+}
+tr:first-child td{
+    background-color: rgb(9, 5, 75);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
 }
 
 footer {
@@ -129,3 +142,32 @@ justify-content: space-around;
 @keyframes slide {
     100% { right: 0; }
 }
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+  
+  }
+  #showAvatar img {
+    width: 100px;
+    height: 50px;
+    opacity: .7;
+    border-radius: 5px;
+    border: 1px solid black; 
+  }
+  .sliderightuser {
+    position: relative;
+    right: -2000px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 9s;
+  }
+  
+  @-webkit-keyframes slide {
+    100% { right: 0; }
+  }
+  
+  @keyframes slide {
+    100% { right: 0; }
+  }
+

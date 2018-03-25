@@ -18,7 +18,7 @@ h1 {
   color: rgb(9, 5, 75);
   font-size: 80px;
   font-family: 'Monoton', cursive; 
-  opacity: .6;
+  opacity: .9;
   letter-spacing: 10px;
   word-spacing: 40px;
   margin-bottom: 0;
@@ -86,6 +86,22 @@ h1 {
 @keyframes slide {
   100% { top: 0; }
 }
+.slidetopuser {
+  position: relative;
+  top: -2000px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 9s;
+}
+
+@-webkit-keyframes slide {
+  100% { top: 0; }
+}
+
+@keyframes slide {
+  100% { top: 0; }
+}
 ul {
   display: flex;
   justify-content: space-evenly;
@@ -99,9 +115,12 @@ ul li {
   padding: 10px;
   background-color: beige;
   border-radius: 10px; 
-  opacity: .5;
+  opacity: .6;
   height: 20px;
   border: 1px solid black;
+}
+li:hover {
+  background-color: lightblue;
 }
 
 main {
@@ -118,6 +137,9 @@ main {
   font-size: 16px;
 }
 
+.likebuttons:hover {
+  background-color: lightblue;
+}
 #mainform {
   border: 25px solid beige;
   border-radius: 20px;
@@ -191,8 +213,17 @@ footer {
   margin: 25px;
 
   
+
 #showAvatar {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+
+}
+#showAvatar img {
   width: 100px;
   height: 50px;
   opacity: .7;
+  border: 1px solid black;
 }

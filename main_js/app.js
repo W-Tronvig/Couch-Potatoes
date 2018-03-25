@@ -275,8 +275,12 @@ if (window.location.href.includes("pastresults")) {
 var table = document.getElementById("past_results_table");
 
 var headerNames = ["Activities", "Website"]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 883eac58a8852dc633b75c0cafb253d0ca7967a1
 function makeHeader(){
-  var rowHeader = document.createElement("th");
+  var rowHeader = document.createElement("tr");
   table.appendChild(rowHeader);
   var cellLocation = document.createElement("td");
   cellLocation.textContent = "";
@@ -289,6 +293,10 @@ function makeHeader(){
   }
   // totalCell.textContent = "Total";
   // rowHeader.appendChild(totalCell);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 883eac58a8852dc633b75c0cafb253d0ca7967a1
 }
 
 function makeTable() {
@@ -357,5 +365,5 @@ avatarPics.addEventListener("click", saveAvatar);
 function getLocalStorage() {
     var getName = localStorage.getItem('userName');
     var getAvatar = localStorage.getItem('avatar');
-    document.getElementById("showAvatar").innerHTML = getName + "<br><img src='" + getAvatar + "'>'";
+    document.getElementById("showAvatar").innerHTML = getName + "<br/><img src=" + getAvatar + ">";
 }

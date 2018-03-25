@@ -19,7 +19,7 @@ h1 {
     color: rgb(9, 5, 75);
     font-size: 80px;
     font-family: 'Monoton', cursive; 
-    opacity: .6;
+    opacity: .9;
     letter-spacing: 10px;
     word-spacing: 40px;
     margin-bottom: 0;
@@ -50,6 +50,10 @@ input{
     color: white;
 }
 
+input:hover {
+    background-color: blue;
+}
+
 #form {
     font-size: 30px;
     width: 200px;
@@ -63,7 +67,7 @@ input{
 
 img {
     border-radius: 20px;
-    border: 2px solid black;
+    border: 1px solid black;
     width: 100px;
     height: 50px;
     opacity: .8;
@@ -82,10 +86,15 @@ ul li {
     padding: 10px;
     background-color: beige;
     border-radius: 10px; 
-    opacity: .5;
+    opacity: .6;
     height: 20px;
     border: 1px solid black;
 }
+
+li:hover {
+    background-color: lightblue;
+}
+
 #choices {
     display: flex;
     justify-content: space-around;
@@ -102,6 +111,10 @@ button {
     margin: 10px;
     opacity: .6;
     border-radius: 10px;
+}
+
+button:hover {
+    background-color: blue;
 }
 
 footer {
