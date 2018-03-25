@@ -104,13 +104,13 @@ h1 {
 @keyframes slide {
   100% { top: 0; }
 }
-.slidetopuser {
+#showAvatar {
   position: relative;
   top: -2000px;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
-  animation-delay: 9s;
+  animation-delay: 10s;
 }
 
 @-webkit-keyframes slide {
