@@ -70,6 +70,24 @@ h1 {
 @keyframes slide {
     100% { top: 0; }
 }
+
+.slidetopform {
+  position: relative;
+  top: -2000px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 8s;
+}
+
+@-webkit-keyframes slide {
+  100% { top: 0; }
+}
+
+@keyframes slide {
+  100% { top: 0; }
+}
+
 .slidetopform {
   position: relative;
   top: -2000px;

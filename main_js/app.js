@@ -129,8 +129,6 @@ var chosenSubCategory = "";
 var pickedActivity = [];
 
 
-
-
 function button(type) {
     var button = document.createElement("BUTTON");
     var buttonName = document.createTextNode(type);
