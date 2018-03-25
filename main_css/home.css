@@ -49,6 +49,7 @@ input{
     border-radius: 10px;
     color: white;
 }
+
 input:hover {
     background-color: blue;
 }
@@ -93,6 +94,7 @@ ul li {
 li:hover {
     background-color: lightblue;
 }
+
 #choices {
     display: flex;
     justify-content: space-around;
