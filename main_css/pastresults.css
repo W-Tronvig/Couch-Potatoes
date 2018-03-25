@@ -142,6 +142,8 @@ justify-content: space-around;
 @keyframes slide {
     100% { right: 0; }
 }
+#showAvatar {
+    text-align: center;
     color: white;
     font-size: 20px;
     text-transform: uppercase;
