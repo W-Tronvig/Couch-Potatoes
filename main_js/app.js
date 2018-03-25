@@ -277,7 +277,7 @@ var table = document.getElementById("past_results_table");
 var headerNames = ["Activities", "Website"]
 
 function makeHeader(){
-  var rowHeader = document.createElement("th");
+  var rowHeader = document.createElement("tr");
   table.appendChild(rowHeader);
   var cellLocation = document.createElement("td");
   cellLocation.textContent = "";
@@ -362,6 +362,6 @@ function getLocalStorage() {
 
     var getName = localStorage.getItem('userName');
     var getAvatar = localStorage.getItem('avatar');
-    document.getElementById("showAvatar").innerHTML = getName + "<br><img src='" + getAvatar + "'>'";
+    document.getElementById("showAvatar").innerHTML = getName + "<br/><img src=" + getAvatar + ">";
 }
 
