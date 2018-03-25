@@ -359,5 +359,5 @@ avatarPics.addEventListener("click", saveAvatar);
 function getLocalStorage() {
     var getName = localStorage.getItem('userName');
     var getAvatar = localStorage.getItem('avatar');
-    document.getElementById("showAvatar").innerHTML = getName + "<br><img src='" + getAvatar + "'>'";
+    document.getElementById("showAvatar").innerHTML = getName + "<br/><img src=" + getAvatar + ">";
 }
